@@ -11,6 +11,8 @@ export default function Alert(props){
           {props.alert.msg}
           
         </div>
+
+        // my name is akshu
       )
     );
 }
