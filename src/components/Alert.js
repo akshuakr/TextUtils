@@ -13,7 +13,7 @@ export default function Alert(props){
           
         </div>
 
-        // my name is akshansh akshu
+        // my name is akshansh akshuakr
       )}
       </div>
     );
