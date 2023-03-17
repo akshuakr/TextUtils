@@ -56,7 +56,6 @@ export default function TextForm(props){
         >
           <h1>{props.heading}</h1>
           <div className="mb-3">
-          
             <textarea
               className="form-control"
               value={text}
@@ -106,9 +105,20 @@ export default function TextForm(props){
         >
           <h1>Your text summary</h1>
           <p>
-            {text.split(" ").length} words and {text.length} characters
+            {
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            }{" "}
+            words and {text.length} characters
           </p>
-          <p>{0.008 * text.split(" ").length} minutes read</p>
+          <p>
+            {0.008 *
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length}{" "}
+            minutes read
+          </p>
           <h3>Preview</h3>
           <p>
             {text.length > 0

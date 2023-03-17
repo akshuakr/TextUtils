@@ -1,31 +1,18 @@
 import React, {useState} from 'react'
 
-export default function About(){
+export default function About(props){
     
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    });
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // });
 
-    const [btnText, setBtnText] = useState("Dark Mode");
+    let myStyle = {
+      color: props.mode === "dark" ? "white" : "black",
+      backgroundColor: props.mode === "dark" ? "#054273" : "white",
+      // document.getElementById('bid1').color : 'white',
+    };
 
-    const toggleStyle = () =>{
-        if(myStyle.color === 'white'){
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Dark Mode")
-        }
-        else{
-            setMyStyle({
-              color: "white",
-              backgroundColor: "black",
-              border: "1px solid white"
-            });
-            setBtnText("Light Mode");
-        }
-    }
 
     return (
       <div className="container my-4 " style = {myStyle}>
@@ -36,6 +23,7 @@ export default function About(){
               <button
                 className="accordion-button"
                 type="button"
+                id = "bid1"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
@@ -131,7 +119,7 @@ export default function About(){
             </div>
           </div>
         </div>
-        <button type="button" onClick={toggleStyle} className="btn btn-primary mx-3 my-1">{btnText}</button>
+        
       </div>
     );
 }
